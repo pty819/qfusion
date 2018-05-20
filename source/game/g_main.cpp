@@ -388,8 +388,6 @@ void G_Shutdown( void ) {
 
 	G_FreeCallvotes();
 
-	G_LevelFreePool();
-
 	for( i = 0; i < game.numentities; i++ ) {
 		if( game.edicts[i].r.inuse ) {
 			G_FreeEdict( &game.edicts[i] );
@@ -398,6 +396,8 @@ void G_Shutdown( void ) {
 
 	G_Free( game.edicts );
 	G_Free( game.clients );
+
+	G_LevelFreePool();
 }
 
 //======================================================================
